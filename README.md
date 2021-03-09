@@ -3,6 +3,11 @@ Deploy by Ansible Nginx webserver on 8080 port
 
 
 
+Update 10.03.21
+Собрать автозапуск
+
+
+
 ### Usefull command:
 
 Отладка/Подробности выполнения команд (min -v; max -vvvv)
