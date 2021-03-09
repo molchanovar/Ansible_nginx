@@ -5,7 +5,7 @@ Deploy by Ansible Nginx webserver on 8080 port
 
 ### Usefull command:
 
-Отладка/Подробности выполнения команд (min -v; max -vvv)
+Отладка/Подробности выполнения команд (min -v; max -vvvv)
 ```
 ansible nginx -m command -a "ls /var/log" -vv
 ```
@@ -35,6 +35,11 @@ ansible nginx -m yum -a "name=httpd state=removed" -b
 Добавление в автозапуск + загрузка при запуске:
 ```
 ansible nginx -m service -a "name=httpd state=started enabled=yes" -b
+```
+
+Запуск Playbook'а:
+```
+ansible-playbook nginx.yml
 ```
 
 
