@@ -15,3 +15,8 @@ ansible nginx -m copy -a "src=hi.txt dest=/home mode=777" -b
 ```
 ansible nginx -m file -a "path=/home/vagrant/hi.txt state=absent"
 ```
+
+Скачать из Интернета:
+```
+ansible nginx -m get_url -a "url=___ dest=/home"
+```
