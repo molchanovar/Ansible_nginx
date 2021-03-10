@@ -42,10 +42,40 @@ ansible nginx -m yum -a "name=httpd state=removed" -b
 ansible nginx -m service -a "name=httpd state=started enabled=yes" -b
 ```
 
-Запуск Playbook'а:
+### Playbook'и:
 ```
 ansible-playbook nginx.yml
 ```
 
+#### Block with conditions:
+```
+--- 
+ - name: Install Apache
+   hosts: all
+   become: true
+   
+   tasks: 
+    - block:   # ====Block for REDHAT=====
+        
+        - name: Install Apache Web Server
+          yum: name=httpd state=latest
+         
+        - name: Start Web Server service for Redhat
+          service: name=httpd state=started enabled=yes
+          
+      when: ansible_os_family == "RedHat"
+  
+```
 
+#### Loops:
+(Установка нескольких пакетов): 
+```
+---
+ - name: Install some packages
+   yum: name={{ item }} state=installed
+   with_items:
+       - python3
+       - tree
+       - vim
 
+```
