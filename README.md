@@ -1,11 +1,12 @@
 # Ansible_nginx
-Deploy by Ansible Nginx webserver on 8080 port
+Deploy by Vagrant + Ansible (Playbook/Role) Nginx webserver on 8080 port
 
-
+Директории:
+1. Nginx через Ansible Playbook
+2. Nginx через Ansible Role
 
 Update 10.03.21
 Собрать автозапуск
-
 
 
 ### Usefull command:
