@@ -15,6 +15,11 @@ Update 10.03.21
 ansible nginx -m command -a "ls /var/log" -vv
 ```
 
+Вывод всех переменных:
+```
+ansible all -m setup  
+```
+
 Копирование файла на сервер (-b с правами sudo)
 ```
 ansible nginx -m copy -a "src=hi.txt dest=/home/vagrant" 
@@ -68,7 +73,7 @@ ansible-playbook nginx.yml
 ```
 
 #### Loops:
-(Установка нескольких пакетов): 
+Установка нескольких пакетов: 
 ```
 ---
  - name: Install some packages
