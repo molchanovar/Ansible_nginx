@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
           box.vm.network "private_network", ip: boxconfig[:ip_addr]
 
           box.vm.provider :virtualbox do |vb|
-            vb.customize ["modifyvm", :id, "--memory", "200"]
+            vb.customize ["modifyvm", :id, "--memory", "256"]
           end
           
           box.vm.provision "shell", inline: <<-SHELL
@@ -31,8 +31,8 @@ Vagrant.configure("2") do |config|
       end
 
       config.vm.provision "ansible" do |ansible|
-        ansible.playbook = "nginx.yml"
-      
+        ansible.playbook = "nginx.yml"    
+
       end
   end
 end
