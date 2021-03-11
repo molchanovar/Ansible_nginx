@@ -4,7 +4,6 @@
   become: true
   vars:
     nginx_listen_port: 8080
-    root_page: /var/www/html/default/MySite;
 
   tasks:
     - name: NGINX | Install EPEL Repo package from standart repo
@@ -33,13 +32,6 @@
         - reload nginx
       tags:
         - nginx-configuration
-
-    - name: NGINX | Make another start page
-      copy:
-        src: ./MySite
-        dest: /var/www/html/default/
-      notify:
-        - reload nginx
 
   handlers:
       - name: restart nginx
