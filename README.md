@@ -8,7 +8,7 @@ Deploy by Vagrant + Ansible (Playbook/Role) Nginx webserver on 8080 port
 - Используется notify для старта nginx после установки
 - Сайт слушает на нестандартном порту - 8080 (сделано через переменные в Ansible)
 
-Для запуска требуется установленный Ansible на хосте. 
+Для запуска требуется установленный Ansible на хосте (Запуск - скачать и `vagrant up`). 
 
 Директории:
 1. Nginx через Ansible Playbook
