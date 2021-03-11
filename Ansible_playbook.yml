@@ -1,46 +1,54 @@
 ---
-- name: NGINX | Install and configure NGINX web server 
+- name: NGINX | Install and configure NGINX web server
   hosts: nginx
   become: true
-  vars: 
+  vars:
     nginx_listen_port: 8080
+    root: /var/www/html/default/MySite;
 
   tasks:
     - name: NGINX | Install EPEL Repo package from standart repo
       yum:
         name: epel-release
         state: present
-      tags: 
+      tags:
         - epel-package
         - packages
-      
+
     - name: NGINX | install NGINX package from EPEL repo
-      yum: 
+      yum:
         name: nginx
         state: latest
-      notify: 
+      notify:
         - restart nginx
       tags:
         - nginx-package
-        - pakages  
+        - pakages
 
     - name: NGINX | Create NGINX config file from template
       template:
-        src: ./nginx.conf.j2
+        src: ./tamplates/nginx.conf.j2
         dest: /etc/nginx/nginx.conf
       notify:
         - reload nginx
       tags:
         - nginx-configuration
 
+    - name: NGINX | Make another start page
+      copy:
+        src: ./MySite
+        dest: /var/www/html/default/
+      notify:
+        - reload nginx
+
   handlers:
       - name: restart nginx
-        systemd: 
-           name: nginx 
+        systemd:
+           name: nginx
            state: restarted
            enabled: yes
 
       - name: reload nginx
-        systemd: 
+        systemd:
            name: nginx
            state: reloaded
