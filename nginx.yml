@@ -1,0 +1,7 @@
+---
+- name: NGINX | Install and configure NGINX web server 
+  hosts: nginx
+  become: true
+
+  roles: 
+   - { role: deploy_nginx, when: ansible_system == 'Linux' }
