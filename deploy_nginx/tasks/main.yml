@@ -27,7 +27,7 @@
   tags:
     - nginx-configuration
 
-- name: Create directory where will put our start html page
+- name: NGINX | Create directory where will put our start html page
   file: 
     path: /var/www/html/default/MySite
     state: directory
