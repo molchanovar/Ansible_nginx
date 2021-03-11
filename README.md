@@ -110,3 +110,6 @@ deploy_nginx
         └── main.yml
 
 ```
+Про пути до файлов: 
+Copy всегда берутся из директории Files.
+Templates из templates.
