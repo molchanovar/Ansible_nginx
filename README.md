@@ -1,12 +1,18 @@
 # Ansible_nginx
 Deploy by Vagrant + Ansible (Playbook/Role) Nginx webserver on 8080 port
 
+Подготовлен стенд на Vagrant с одним сервером. На этом сервере используя Ansible разворачивается nginx со следующими условиями:
+- Используется модуль yum (RedHat Linux)
+- Конфигурационные файлы берутся из шаблона jinja2 с перемененными (templates)
+- После установки nginx должен быть в режиме enabled в systemd
+- Используется notify для старта nginx после установки
+- Сайт слушает на нестандартном порту - 8080 (сделано через переменные в Ansible)
+
+Для запуска требуется установленный Ansible на хосте. 
+
 Директории:
 1. Nginx через Ansible Playbook
 2. Nginx через Ansible Role
-
-Update 10.03.21
-Собрать автозапуск
 
 
 ### Usefull command:
