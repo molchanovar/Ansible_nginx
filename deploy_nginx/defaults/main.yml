@@ -1,4 +1,4 @@
 ---
 # defaults file for deploy_nginx
 nginx_listen_port: 8080
-root: /var/www/html/default/MySite;i
+root_path: /var/www/html/default/MySite;
